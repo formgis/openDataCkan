@@ -1,10 +1,9 @@
-import { Sequelize } from "sequelize";
-import db from '../config/Database.js';
-import Users  from "./userModel.js";
-import Packages from './packageModel.js';
-
-import { DataTypes } from 'sequelize';
-
+const { Sequelize } = require("sequelize");
+const db = require('../config/Database');
+const { DataTypes } = require('sequelize');
+const Users = require ('./User');
+const Packages = require ('./Package');
+ 
 const Histories = db.define('history', {
   id: {
     type: DataTypes.INTEGER,
@@ -44,4 +43,5 @@ Packages.hasOne(Histories, { foreignKey: 'package_id' });
 Histories.belongsTo(Packages, { foreignKey: 'package_id' });
 
 
-export default Histories;
+
+module.exports = Histories;

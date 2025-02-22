@@ -1,7 +1,9 @@
-import db from '../config/Database.js';
-import { DataTypes } from 'sequelize';
+const { Sequelize } = require("sequelize");
+const db = require('../config/Database.js');
+const { DataTypes } = require('sequelize');
 
-const Groups = db.define('group', {
+
+const Organizations = db.define('organization', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -11,9 +13,10 @@ const Groups = db.define('group', {
     type: DataTypes.STRING,
     allowNull: false,
     validate:{
-      notEmpty: true
+      notEmpty: true,
+      len: [3, 100] 
     }
-  },
+},
   title:{
     type: DataTypes.STRING,
     allowNull: false,
@@ -33,7 +36,7 @@ const Groups = db.define('group', {
     allowNull: false,
     validate:{
       notEmpty: true
-    },
+    }
   },
   modified:{
     type: DataTypes.DATE,
@@ -42,9 +45,10 @@ const Groups = db.define('group', {
       notEmpty: true
     }
   }
-  }, {
+}, {
   freezeTableName: true,
   timestamps: false,
 });
 
-export default Groups;
+
+module.exports = Organizations

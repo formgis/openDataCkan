@@ -1,9 +1,8 @@
-import { Sequelize } from "sequelize";
-import db from '../config/Database.js';
+const { Sequelize } = require("sequelize");
+const db = require('../config/Database');
+const { DataTypes } = require('sequelize');
 
-import { DataTypes } from 'sequelize';
-
-const Organizations = db.define('organization', {
+const Users = db.define('user', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -13,19 +12,11 @@ const Organizations = db.define('organization', {
     type: DataTypes.STRING,
     allowNull: false,
     validate:{
-      notEmpty: true,
-      len: [3, 100] 
-    }
-},
-  title:{
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate:{
       notEmpty: true
     }
   },
-  description:{
-    type: DataTypes.TEXT,
+  email:{
+    type: DataTypes.STRING,
     allowNull: false,
     validate:{
       notEmpty: true
@@ -38,16 +29,17 @@ const Organizations = db.define('organization', {
       notEmpty: true
     }
   },
-  modified:{
+  last_login:{
     type: DataTypes.DATE,
     allowNull: false,
     validate:{
       notEmpty: true
-    }
-  }
+    },
+  },
 }, {
   freezeTableName: true,
-  timestamps: false,
+  timestamps: false
 });
 
-export default Organizations;
+
+module.exports = Users;

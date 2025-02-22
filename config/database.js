@@ -1,9 +1,8 @@
-import { Sequelize } from "sequelize";
+const { Sequelize } = require("sequelize");
 
-const db = new Sequelize('db_ckan', 'root', '', {
+const db = new Sequelize('db_ckan', 'root', 'Fcporto#2024', {
   host: 'localhost',
   dialect: 'mysql',
 });
 
-export default db;
-
+module.exports = db;

@@ -1,10 +1,8 @@
-import { Sequelize } from "sequelize";
-import db from '../config/Database.js';
+const { Sequelize } = require("sequelize");
+const db = require('../config/Database');
+const { DataTypes } = require('sequelize');
 
-import { DataTypes } from 'sequelize';
-import { timeStamp } from "console";
-
-const Users = db.define('user', {
+const Groups = db.define('group', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -17,8 +15,15 @@ const Users = db.define('user', {
       notEmpty: true
     }
   },
-  email:{
+  title:{
     type: DataTypes.STRING,
+    allowNull: false,
+    validate:{
+      notEmpty: true
+    }
+  },
+  description:{
+    type: DataTypes.TEXT,
     allowNull: false,
     validate:{
       notEmpty: true
@@ -29,18 +34,18 @@ const Users = db.define('user', {
     allowNull: false,
     validate:{
       notEmpty: true
-    }
+    },
   },
-  last_login:{
+  modified:{
     type: DataTypes.DATE,
     allowNull: false,
     validate:{
       notEmpty: true
-    },
-  },
-}, {
+    }
+  }
+  }, {
   freezeTableName: true,
-  timestamps: false
+  timestamps: false,
 });
 
-export default Users;
+module.exports = Groups;

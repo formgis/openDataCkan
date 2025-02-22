@@ -1,16 +1,15 @@
 {
-  "name": "ckan",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
+  "name": "open_data_ckan",
+  "version": "2.0.0",
+  "description": "Node.js Ckan Open Data",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "Pedro Alves",
   "license": "ISC",
-  "description": "Módulos do Ckan",
   "dependencies": {
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",

@@ -1,8 +1,7 @@
-import { Sequelize } from "sequelize";
-import db from '../config/Database.js';
-import Packages from './packageModel.js';
-
-import { DataTypes } from 'sequelize';
+const { Sequelize } = require("sequelize");
+const db = require('../config/Database');
+const Packages = require('./Package');
+const { DataTypes } = require('sequelize');
 
 const Tags = db.define('tag', {
   id: {
@@ -25,4 +24,5 @@ const Tags = db.define('tag', {
 Packages.hasMany(Tags, { foreignKey: 'pakage_id' });
 Tags.belongsTo(Packages, { foreignKey: 'pakage_id' });
 
-export default Tags;
+
+module.exports = Tags;
