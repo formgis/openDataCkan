@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 const db = require('../config/Database');
-const Organizations = require('./Organization.js');
+const Organizations = require('./Organization');
 
 const { DataTypes } = require('sequelize');
 
@@ -68,9 +68,6 @@ const Packages = db.define(
     timestamps: false,
   }
 );
-
-Organizations.hasOne(Packages, { foreignKey: 'organization_id' });
-Packages.belongsTo(Organizations, { foreignKey: 'organization_id' });
 
 
 module.exports = Packages;

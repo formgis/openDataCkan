@@ -49,10 +49,5 @@ const Resources = db.define(
   }
 );
 
-Packages.hasMany(Resources, { foreignKey: 'package_id' });
-Resources.belongsTo(Packages, { foreignKey: 'package_id' });
-
-Users.hasOne(Resources, { foreignKey: 'user_id' });
-Resources.belongsTo(Users, { foreignKey: 'user_id' });
 
 module.exports = Resources;

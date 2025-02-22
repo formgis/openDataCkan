@@ -36,12 +36,6 @@ const Histories = db.define('history', {
   timestamps: false
 });
 
-Users.hasOne(Histories, { foreignKey: 'user_id' });
-Histories.belongsTo(Users, { foreignKey: 'user_id' });
-
-Packages.hasOne(Histories, { foreignKey: 'package_id' });
-Histories.belongsTo(Packages, { foreignKey: 'package_id' });
-
 
 
 module.exports = Histories;

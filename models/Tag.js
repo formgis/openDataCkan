@@ -21,8 +21,5 @@ const Tags = db.define('tag', {
   timestamps: false
 });
 
-Packages.hasMany(Tags, { foreignKey: 'pakage_id' });
-Tags.belongsTo(Packages, { foreignKey: 'pakage_id' });
-
 
 module.exports = Tags;
