@@ -22,23 +22,15 @@ const Users = db.define('user', {
       notEmpty: true
     }
   },
-  created:{
-    type: DataTypes.DATE,
+  password:{
+    type: DataTypes.STRING,
     allowNull: false,
     validate:{
       notEmpty: true
     }
-  },
-  last_login:{
-    type: DataTypes.DATE,
-    allowNull: false,
-    validate:{
-      notEmpty: true
-    },
-  },
+  }
 }, {
   freezeTableName: true,
-  timestamps: false
 });
 
 
