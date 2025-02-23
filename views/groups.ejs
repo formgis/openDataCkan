@@ -1,0 +1,37 @@
+<div id="content" class="p-4 p-md-5 pt-5 flex-grow-1">
+  <h2 class="mb-4">Tabela de Grupos</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Pacotes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (groups && groups.length > 0) { %> <% groups.forEach(group => { %>
+      <tr>
+        <td><%= group.id %></td>
+        <td><%= group.name %></td>
+        <td><%= group.title %></td>
+        <td><%= group.description %></td>
+        <td>
+          <% if (group.packages && group.packages.length > 0) { %>
+          <ul>
+            <% group.packages.forEach(pkg => { %>
+            <li><%= pkg.name %></li>
+            <% }); %>
+          </ul>
+          <% } else { %> Nenhum pacote <% } %>
+        </td>
+      </tr>
+      <% }); %> <% } else { %>
+      <tr>
+        <td colspan="5">Nenhum grupo encontrado</td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

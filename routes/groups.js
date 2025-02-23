@@ -4,8 +4,14 @@ const Group = require('../models/Group');
 const Package = require('../models/Package');
 
 router.get('/', async (req, res) => {
-  const groups = await Group.findAll({ include: Package });
-  res.json(groups);
+  try {
+    const groups = await Group.findAll({ include: Package });
+    console.log('Grupos:', groups); // Verifica se os dados estão corretos
+    res.render('groups', { groups }); // Envia os grupos para o EJS
+  } catch (error) {
+    console.error('Erro ao carregar grupos:', error);
+    res.status(500).send('Erro ao carregar grupos');
+  }
 });
 
 router.get('/:id', async (req, res) => {
